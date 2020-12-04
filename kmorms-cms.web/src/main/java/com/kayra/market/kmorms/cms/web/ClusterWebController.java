@@ -34,6 +34,7 @@ public class ClusterWebController {
 	 * @param cluster
 	 * @return
 	 */
+	
 	@ResponseBody
 	@RequestMapping(value = "/save", method = RequestMethod.POST, produces = PUB_OUTPUT, consumes = PUB_INPUT)
 	public ResponseEntity<Object> save(@RequestBody Cluster cluster) {
