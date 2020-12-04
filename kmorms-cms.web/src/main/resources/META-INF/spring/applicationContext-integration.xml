@@ -21,12 +21,9 @@
   		create-session="stateless"
         entry-point-ref="restAuthenticationEntryPoint"
         authentication-manager-ref="cmsAuthenticationManager">
-    <intercept-url pattern="/cms/resources/**" access="permitAll"/>
-    <intercept-url pattern="/cms/login/**" access="permitAll"/>
+    <intercept-url pattern="/cms/**" access="permitAll"/>
     <intercept-url pattern="/**" access="permitAll"/>
-    <!--<anonymous enabled="false"/>-->
-<!--     <http-basic entry-point-ref="restAuthenticationEntryPoint"/> -->
-<!-- 	<http-basic/> -->
+    <http-basic/>
   </http>
   
 	  

@@ -5,12 +5,12 @@ import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kayra.market.kmorms.cms.documentmodel.Body;
@@ -22,8 +22,8 @@ import com.kayra.market.kmorms.cms.service.BodyService;
 public class BodyWebController {
 
      
-	public static final String PUB_OUTPUT = MediaType.APPLICATION_JSON_VALUE;
-	public static final String PUB_INPUT = MediaType.APPLICATION_JSON_VALUE;
+	public static final String PUB_OUTPUT = "application/json";
+	public static final String PUB_INPUT = "application/json";
 	
 	
 	@Autowired
@@ -82,7 +82,8 @@ public class BodyWebController {
 	 * @param bodyModel
 	 * @return
 	 */
-	@RequestMapping(value = "/status/{id}", method = RequestMethod.GET, produces = PUB_OUTPUT)
+	@ResponseBody
+    @RequestMapping(value = "/status/{id}", method = RequestMethod.GET, produces = PUB_OUTPUT)
 	public ResponseEntity<Object> getBody(@PathVariable("id") String id) {
 
 		try {

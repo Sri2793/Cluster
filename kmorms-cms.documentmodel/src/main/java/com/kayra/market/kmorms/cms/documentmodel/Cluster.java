@@ -1,7 +1,6 @@
 package com.kayra.market.kmorms.cms.documentmodel;
 
-
-import javax.persistence.Transient;
+import java.util.Set;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,30 +10,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Getter
 @Setter
 @NoArgsConstructor
-@Document(collection = "body")
-public class Body {
-
+@Document(collection = "cluster")
+public class Cluster {
+	
 	@Id
-    private String id;
+	private String id;
 	
 	@Field
-    private String body;
+	private String name;
 	
-	@Field
-    private String detail;
+	private Set<ClusterSystem> systems;
 	
-	@Field
-    private String status;
-	
-	@Transient
-	private String callback;
-	
-	public String getCallback() {
-		return "/callback/" + id;
-	}
-	
+	private Set<ClusterUser> users;
+
 }
